@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+dir="."
+url="https://www.toptal.com/developers/gitignore/api"
+templates=$(curl -fsSL "$url/list" | tr ',' '\n')
+echo "$templates" | nl
+
+for template in $templates; do
+	echo "downloading $template.gitignore"
+	curl -fsSL "$url/$template" >"$dir/$template.gitignore"
+done
+echo "downloaded all gitignore files"

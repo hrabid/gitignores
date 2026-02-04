@@ -1,0 +1,1 @@
+sgt="curl -fsSL https://www.toptal.com/developers/gitignore/api/list | tr ',' '\n' | fzf"
